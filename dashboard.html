@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dashboard – Cartagena de Indias</title>
+  <link rel="stylesheet" href="css/style.css"/>
+  <link rel="stylesheet" href="css/responsive.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Crimson+Pro:wght@300;400;600&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="nav-logo">
+      <span class="logo-icon">⚓</span>
+      <span>Cartagena <em>de Indias</em></span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="sitios.html">Sitios</a></li>
+      <li><a href="eventos.html">Eventos</a></li>
+      <li><a href="agenda.html">Agenda</a></li>
+      <!-- logout() borra sessionStorage['ctg_session'] (la sesión), NO las cuentas. -->
+      <li><a href="#" id="logout-nav" onclick="logout(); return false;" class="btn-nav">Salir</a></li>
+    </ul>
+    <button class="menu-toggle">☰</button>
+  </nav>
+
+  <div class="dashboard-layout">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <span style="font-size:1.5rem;">⚓</span>
+        <span style="font-family:var(--ff-display); color:var(--crema); margin-left:.5rem;">Mi Panel</span>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="dashboard.html" class="active"><span class="icon">🏠</span> Inicio</a></li>
+          <li><a href="sitios.html"><span class="icon">🗺️</span> Sitios Turísticos</a></li>
+          <li><a href="eventos.html"><span class="icon">🎉</span> Eventos</a></li>
+          <li><a href="agenda.html"><span class="icon">📅</span> Mi Agenda</a></li>
+          <li><a href="#" onclick="logout(); return false;"><span class="icon">🚪</span> Cerrar Sesión</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- Main -->
+    <main class="main-content">
+      <div class="dash-welcome">
+        <h2>¡Hola, <span id="user-name">Viajero</span>! 🌅</h2>
+        <p>Bienvenido a tu panel de Cartagena de Indias.</p>
+      </div>
+
+      <div class="dash-cards">
+        <div class="dash-card">
+          <span class="num">12</span>
+          <span class="label">Sitios Disponibles</span>
+        </div>
+        <div class="dash-card">
+          <!-- Lo rellena usuarios.js → initDashboard() contando localStorage['agenda']. -->
+          <span class="num" id="agenda-count">0</span>
+          <span class="label">Eventos en tu Agenda</span>
+        </div>
+        <div class="dash-card">
+          <span class="num">6</span>
+          <span class="label">Eventos Este Mes</span>
+        </div>
+      </div>
+
+      <!-- Mini calendar -->
+      <div style="margin-top:2.5rem;">
+        <h3 style="font-family:var(--ff-display); font-size:1.4rem; margin-bottom:1.25rem;">📅 Calendario de Eventos</h3>
+        <div style="background:var(--blanco); border-radius:var(--radius); padding:1.5rem; box-shadow:var(--shadow); max-width:380px;">
+          <!-- Lo dibuja calendario.js con los eventos fijos de eventos.js. -->
+          <div id="mini-calendario"></div>
+        </div>
+      </div>
+
+      <!-- Recomendaciones -->
+      <div style="margin-top:2.5rem;">
+        <h3 style="font-family:var(--ff-display); font-size:1.4rem; margin-bottom:1.25rem;">⭐ Sitios Recomendados</h3>
+        <div style="background:var(--blanco); border-radius:var(--radius); padding:1.5rem; box-shadow:var(--shadow); max-width:560px;">
+          <!-- Lo dibuja recomendaciones.js a partir de SITIOS (app.js). -->
+          <div id="recomendaciones-dash"></div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Orden: catálogos primero (app.js, eventos.js), luego usuarios/calendario/
+       recomendaciones. Todos publican funciones en window para el script final. -->
+  <script src="js/app.js"></script>
+  <script src="js/eventos.js"></script>
+  <script src="js/usuarios.js"></script>
+  <script src="js/calendario.js"></script>
+  <script src="js/recomendaciones.js"></script>
+  <!-- Este bloque solo "enchufa" los módulos a sus contenedores. No guarda datos. -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      renderCalendario('mini-calendario');
+      renderRecomendaciones('recomendaciones-dash', ['historia', 'cultura']);
+    });
+  </script>
+</body>
+</html>

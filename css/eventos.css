@@ -1,0 +1,154 @@
+/* =====================================================
+   EVENTOS.CSS – Página de eventos de Cartagena
+   ===================================================== */
+
+/* Eventos grid */
+.eventos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 2rem;
+  padding: 3rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.evento-card {
+  background: var(--blanco);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: transform var(--trans), box-shadow var(--trans);
+  display: flex;
+  flex-direction: column;
+}
+.evento-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 48px rgba(28,23,16,0.18);
+}
+
+.evento-header {
+  background: linear-gradient(135deg, var(--azul) 0%, var(--azul-claro) 100%);
+  padding: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.evento-fecha-box {
+  background: rgba(255,255,255,.15);
+  border-radius: 8px;
+  padding: .5rem .8rem;
+  text-align: center;
+  color: var(--crema);
+  min-width: 56px;
+}
+.evento-fecha-box .dia { font-family: var(--ff-display); font-size: 1.8rem; line-height: 1; }
+.evento-fecha-box .mes { font-size: .65rem; letter-spacing: .12em; text-transform: uppercase; }
+
+.evento-tipo {
+  background: var(--oro);
+  color: var(--oscuro);
+  font-size: .7rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  padding: .25rem .75rem;
+  border-radius: 50px;
+}
+
+.evento-body { padding: 1.5rem; flex: 1; display: flex; flex-direction: column; }
+.evento-body h3 {
+  font-family: var(--ff-display);
+  font-size: 1.15rem;
+  margin-bottom: .5rem;
+}
+.evento-body p { font-size: .92rem; color: var(--gris); flex: 1; margin-bottom: 1rem; }
+
+.evento-footer {
+  padding: 1rem 1.5rem;
+  border-top: 1px solid var(--arena);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.evento-lugar { font-size: .85rem; color: var(--gris); }
+.evento-lugar span { color: var(--terracota); font-weight: 600; }
+.btn-evento {
+  background: none;
+  border: 1.5px solid var(--oro);
+  color: var(--oro);
+  padding: .4rem 1rem;
+  border-radius: 50px;
+  font-family: var(--ff-body);
+  font-size: .85rem;
+  cursor: pointer;
+  transition: all var(--trans);
+}
+.btn-evento:hover { background: var(--oro); color: var(--oscuro); }
+
+/* Calendar strip */
+.calendar-strip {
+  background: var(--arena);
+  padding: 1rem 2rem;
+  display: flex;
+  gap: .75rem;
+  overflow-x: auto;
+  border-bottom: 1px solid rgba(201,150,58,.2);
+}
+.cal-day {
+  min-width: 56px;
+  text-align: center;
+  padding: .6rem .5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background var(--trans);
+  background: var(--blanco);
+  border: 1.5px solid transparent;
+}
+.cal-day:hover { border-color: var(--oro); }
+.cal-day.has-event { border-color: var(--oro); }
+.cal-day.selected { background: var(--oro); color: var(--oscuro); }
+.cal-day .num { font-family: var(--ff-display); font-size: 1.2rem; }
+.cal-day .lbl { font-size: .65rem; letter-spacing: .1em; text-transform: uppercase; color: var(--gris); }
+.cal-day.selected .lbl { color: var(--oscuro); }
+
+/* Search bar */
+.search-bar {
+  display: flex;
+  gap: .75rem;
+  padding: 1.25rem 2rem;
+  background: var(--crema);
+  border-bottom: 1px solid var(--arena);
+  max-width: 1200px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+.search-input {
+  flex: 1;
+  padding: .75rem 1rem;
+  border: 1.5px solid var(--arena);
+  border-radius: 8px;
+  font-family: var(--ff-body);
+  font-size: 1rem;
+  background: var(--blanco);
+  outline: none;
+  transition: border-color var(--trans);
+}
+.search-input:focus { border-color: var(--oro); }
+.search-btn {
+  background: var(--oro);
+  color: var(--oscuro);
+  border: none;
+  padding: .75rem 1.5rem;
+  border-radius: 8px;
+  font-family: var(--ff-body);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background var(--trans);
+}
+.search-btn:hover { background: var(--terracota); color: var(--blanco); }
+
+@media (max-width: 768px) {
+  .eventos-grid { grid-template-columns: 1fr; padding: 2rem 1.5rem; }
+  .search-bar { padding: 1rem 1.5rem; }
+}

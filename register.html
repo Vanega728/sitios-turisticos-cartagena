@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Registro – Cartagena de Indias</title>
+  <link rel="stylesheet" href="css/style.css"/>
+  <link rel="stylesheet" href="css/login.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Crimson+Pro:wght@300;400;600&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <div class="auth-page">
+    <div class="auth-left">
+      <span class="logo-icon">⚓</span>
+      <h2>Únete a <em>Cartagena</em></h2>
+      <p>Crea tu cuenta gratis y empieza a planificar el viaje de tu vida a La Heroica.</p>
+      <ul class="auth-features">
+        <li><span class="feat-icon">🗺️</span> Guarda sitios favoritos</li>
+        <li><span class="feat-icon">📅</span> Crea tu agenda personalizada</li>
+        <li><span class="feat-icon">🔔</span> Recibe alertas de eventos</li>
+        <li><span class="feat-icon">🌟</span> Acceso gratuito y sin límites</li>
+      </ul>
+    </div>
+
+    <div class="auth-right">
+      <div class="auth-form-box">
+        <h3>Crear Cuenta</h3>
+        <p class="sub">Empieza tu aventura en Cartagena de Indias.</p>
+
+        <!-- js/usuarios.js escucha este id. Crea un usuario y guarda la lista
+             COMPLETA en localStorage['ctg_users']. También inicia sesión. -->
+        <form id="register-form">
+          <div class="form-group">
+            <label for="nombre">Nombre completo</label>
+            <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required/>
+          </div>
+          <div class="form-group">
+            <label for="email">Correo electrónico</label>
+            <input type="email" id="email" name="email" placeholder="hola@viajero.com" required/>
+          </div>
+          <div class="form-group">
+            <label for="password">Contraseña</label>
+            <input type="password" id="password" name="password" placeholder="Mínimo 8 caracteres" required/>
+          </div>
+          <div class="form-group">
+            <label for="password2">Confirmar contraseña</label>
+            <input type="password" id="password2" name="password2" placeholder="Repite tu contraseña" required/>
+          </div>
+          <button type="submit" class="form-submit">Crear Cuenta Gratis</button>
+        </form>
+
+        <p class="auth-switch">¿Ya tienes cuenta? <a href="login.html">Inicia sesión</a></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- usuarios.js guarda la cuenta nueva en localStorage y abre dashboard.html. -->
+  <script src="js/usuarios.js"></script>
+</body>
+</html>
