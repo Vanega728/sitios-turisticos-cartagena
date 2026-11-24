@@ -11,3 +11,7 @@ desktop.ini
 # Temporales y logs
 *.tmp
 *.log
+
+# Vercel (metadatos del deploy; se generan solos)
+.vercel/
+.vercel
