@@ -2,7 +2,7 @@
    EVENTOS.CSS – Página de eventos de Cartagena
    ===================================================== */
 
-/* Eventos grid */
+/* Cuadrícula de eventos */
 .eventos-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -85,7 +85,7 @@
 }
 .btn-evento:hover { background: var(--oro); color: var(--oscuro); }
 
-/* Calendar strip */
+/* Calendario pequeño (franja de fechas) */
 .calendar-strip {
   background: var(--arena);
   padding: 1rem 2rem;
@@ -111,7 +111,7 @@
 .cal-day .lbl { font-size: .65rem; letter-spacing: .1em; text-transform: uppercase; color: var(--gris); }
 .cal-day.selected .lbl { color: var(--oscuro); }
 
-/* Search bar */
+/* Barra de búsqueda */
 .search-bar {
   display: flex;
   gap: .75rem;

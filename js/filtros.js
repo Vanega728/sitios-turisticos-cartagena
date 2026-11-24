@@ -2,10 +2,10 @@
 // FILTROS.JS – Filtrado de sitios turísticos
 // =====================================================
 // DÓNDE SE GUARDA: EN ESTE ARCHIVO NO SE GUARDA NADA.
-// Lee SITIOS (app.js) y dibuja tarjetas + modal.
-// OJO: el botón «🗓️ Añadir a mi Agenda» del modal solo muestra un aviso
-// (ver agregarAgendaSitio más abajo). A diferencia de los EVENTOS, los sitios
-// NO se guardan en localStorage. Se dejó así para no cambiar el comportamiento.
+// Lee SITIOS (app.js) y dibuja las tarjetas y la ventana emergente.
+// OJO: el botón «🗓️ Añadir a mi Agenda» de la ventana emergente solo muestra un aviso
+// (ver agregarAgendaSitio más abajo). A diferencia de los eventos, los sitios
+// NO se guardan en localStorage. Se dejó así para no cambiar cómo funciona.
 
 function renderSitios(lista) {
   const grid = document.getElementById('sitios-grid');
@@ -39,7 +39,7 @@ function renderSitios(lista) {
     </article>
   `).join('');
 
-  // Add card-emoji-bg style if not present
+  // Si la tarjeta no tiene el fondo del emoji, se lo agregamos
   if (!document.getElementById('emoji-style')) {
     const st = document.createElement('style');
     st.id = 'emoji-style';
@@ -122,7 +122,7 @@ function abrirModal(id) {
   }
 
   // Se usa la misma convención que en las tarjetas: asset/img/<id>.jpg.
-  // Así el modal muestra la imagen del sitio que se abrió.
+  // Así la ventana emergente muestra la imagen del sitio que se abrió.
   document.getElementById('modal-img').style.backgroundImage = `url('asset/img/${sitio.id}.jpg')`;
   document.getElementById('modal-img').style.backgroundColor = 'var(--arena)';
   document.getElementById('modal-title').textContent = `${sitio.emoji} ${sitio.nombre}`;
@@ -142,7 +142,7 @@ function cerrarModal() {
 }
 
 function agregarAgendaSitio(id) {
-  // No hay localStorage.setItem aquí: es solo feedback visual + cerrar el modal.
+  // No hay localStorage.setItem aquí: solo muestra el aviso y cierra la ventana.
   if (typeof showToast === 'function') showToast('Sitio añadido a tu agenda 🗺️');
   cerrarModal();
 }
@@ -150,7 +150,7 @@ function agregarAgendaSitio(id) {
 document.addEventListener('DOMContentLoaded', () => {
   if (!window.SITIOS) return;
 
-  // Check URL param
+  // Mirar si la dirección trae un id para abrir ese sitio
   const params = new URLSearchParams(window.location.search);
   const cat = params.get('cat') || 'todos';
 

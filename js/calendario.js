@@ -42,17 +42,17 @@ function renderCalendario(containerId) {
     <div class="cal-grid" style="display:grid; grid-template-columns:repeat(7,1fr); gap:4px; text-align:center;">
   `;
 
-  // Day headers
+  // Nombres de los días (D, L, M, M...)
   DIAS_CORTOS.forEach(d => {
     html += `<div style="font-size:.7rem; font-weight:700; color:var(--gris); padding:.3rem 0;">${d}</div>`;
   });
 
-  // Empty cells before first day
+  // Espacios vacíos antes del primer día
   for (let i = 0; i < primerDia; i++) {
     html += `<div></div>`;
   }
 
-  // Days
+  // Días del mes
   for (let d = 1; d <= totalDias; d++) {
     const key = `${calAno}-${calMes}-${d}`;
     const tieneEvento = !!diasConEventos[key];

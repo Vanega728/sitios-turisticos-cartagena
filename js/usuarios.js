@@ -4,7 +4,7 @@
 // DÓNDE SE GUARDA (lo más importante de este archivo):
 //   • localStorage['ctg_users']     → TODAS las cuentas registradas.
 //                                     Permanece al cerrar el navegador.
-//   • sessionStorage['ctg_session'] → la cuenta logueada AHORA.
+//   • sessionStorage['ctg_session'] → la cuenta que está usando el navegador AHORA.
 //                                     Se borra al cerrar la pestaña.
 // Todo vive en ESTE navegador: no hay base de datos ni servidor.
 // Aviso: la contraseña se guarda en texto plano; es solo para la práctica académica.
@@ -34,7 +34,7 @@ function logout() {
   window.location.href = 'login.html';
 }
 
-// ── Login ─────────────────────────────────────────
+// ── Entrar (iniciar sesión) ──────────────────────
 function handleLogin(e) {
   e.preventDefault();
   const email = document.getElementById('email').value.trim();
@@ -52,7 +52,7 @@ function handleLogin(e) {
   window.location.href = 'dashboard.html';
 }
 
-// ── Register ───────────────────────────────────--
+// ── Crear cuenta (registro) ─────────────────────
 function handleRegister(e) {
   e.preventDefault();
   const nombre = document.getElementById('nombre').value.trim();
@@ -71,7 +71,7 @@ function handleRegister(e) {
     return;
   }
 
-  // Account nueva. Se agrega a la lista y ESA LISTA COMPLETA se vuelve a guardar
+  // Cuenta nueva. Se agrega a la lista y ESA LISTA COMPLETA se vuelve a guardar
   // en localStorage bajo la clave 'ctg_users' (no se guarda cada usuario por separado).
   const newUser = { id: Date.now(), nombre, email, password: pass, agenda: [] };
   users.push(newUser);
@@ -95,13 +95,13 @@ function showFormError(msg) {
   err.textContent = msg;
 }
 
-// ── Dashboard init ────────────────────────────────
+// ── Preparar el panel principal ──────────────────
 function initDashboard() {
   const session = getSession();
   const name = document.getElementById('user-name');
   if (name) name.textContent = session ? session.nombre : 'Viajero';
 
-  // El contador del dashboard lee la MISMA clave 'agenda' que usan
+  // El contador del panel lee la MISMA clave 'agenda' que usan
   // eventos.js (añadir) y agenda.js (quitar). Ojo: es global, no por usuario.
   const agendaCount = document.getElementById('agenda-count');
   if (agendaCount && session) {
@@ -110,7 +110,7 @@ function initDashboard() {
   }
 }
 
-// ── Logout button ─────────────────────────────────
+// ── Botón para salir ─────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
   const loginForm    = document.getElementById('login-form');
   const registerForm = document.getElementById('register-form');

@@ -25,7 +25,7 @@
     <button class="menu-toggle">☰</button>
   </nav>
 
-  <!-- Page Hero -->
+  <!-- CABECERA DE LA PÁGINA -->
   <div class="page-hero">
     <div class="page-hero-content">
       <p class="hero-label">Guía completa</p>
@@ -34,7 +34,7 @@
     </div>
   </div>
 
-  <!-- Filters: el atributo data-cat lo lee js/filtros.js para filtrar el catálogo.
+  <!-- FILTROS: el atributo data-cat lo lee js/filtros.js para filtrar la lista de sitios.
        No guarda nada: solo vuelve a dibujar las tarjetas en pantalla. -->
   <div class="filter-bar">
     <button class="filter-btn active" data-cat="todos">Todos</button>
@@ -45,13 +45,13 @@
     <button class="filter-btn" data-cat="museo">🏛️ Museos</button>
   </div>
 
-  <!-- Grid de sitios: js/filtros.js → renderSitios() inyecta aquí las tarjetas.
+  <!-- Grid de sitios: js/filtros.js → renderSitios() pone aquí las tarjetas.
        Cada imagen se arma como asset/img/<id>.jpg (por eso importa el id). -->
   <div class="sitios-grid" id="sitios-grid">
-    <!-- Populated by JS -->
+    <!-- JavaScript pone aquí las tarjetas -->
   </div>
 
-  <!-- Footer -->
+  <!-- PIE DE PÁGINA -->
   <footer class="footer">
     <div class="container footer-inner">
       <div class="footer-brand">

@@ -3,9 +3,9 @@
 // =====================================================
 // DÓNDE SE GUARDA: EN NINGÚN LADO. GRAFO_SITIOS es un mapa fijo en el código.
 // Nota: actualmente NINGÚN HTML carga este archivo; está listo para usarse
-// si quieres mostrar «sitios cercanos» en el modal de sitios.html.
+// si quieres mostrar «sitios cercanos» en la ventana emergente de sitios.html.
 
-// Simple adjacency data: sites near each other
+// Lista fija: qué sitios están cerca de cuál
 const GRAFO_SITIOS = {
   'castillo':     ['popa', 'murallas', 'getsemani'],
   'murallas':     ['castillo', 'torre-reloj', 'santo-domingo', 'inquisicion'],

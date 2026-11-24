@@ -1,8 +1,8 @@
 // =====================================================
 // AGENDA.JS – Agenda personal del usuario
 // =====================================================
-// DÓNDE SE GUARDA: localStorage['agenda'] es un array SOLO de IDs de eventos
-// (por ejemplo [1, 4]). Aquí se LEE y se puede QUITAR un ID.
+// DÓNDE SE GUARDA: localStorage['agenda'] es una lista SOLO con números de id
+// de eventos (por ejemplo [1, 4]). Aquí se LEE y se puede QUITAR un número.
 // Quien AGREGA IDs es eventos.js → agregarAgenda().
 // Los nombres/fechas no se guardan: se buscan en EVENTOS (eventos.js) por su id.
 
@@ -26,7 +26,7 @@ function renderAgendaPage() {
     return;
   }
 
-  // Transformamos cada ID guardado en el evento completo, buscándolo en EVENTOS.
+  // Buscamos cada número guardado en EVENTOS para obtener el evento completo.
   // Por eso la agenda depende de que eventos.js se cargue ANTES (ver agenda.html).
   const eventosEnAgenda = (window.EVENTOS || []).filter(ev => saved.includes(ev.id));
 

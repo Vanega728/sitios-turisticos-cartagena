@@ -1,19 +1,19 @@
 // =====================================================
 // RECOMENDACIONES.JS – Motor de recomendaciones
 // =====================================================
-// DÓNDE SE GUARDA: EN NINGÚN LADO. Lee el catálogo SITIOS (app.js) y arma
+// DÓNDE SE GUARDA: EN NINGÚN LADO. Lee la lista SITIOS (app.js) y arma
 // una lista temporal ordenada por categorías preferidas (dashboard.html se las pasa).
-// Las preferencias no se recuerdan entre recargas: están hardcodeadas en dashboard.html.
+// Las preferencias no se recuerdan al recargar: están escritas fijamente en dashboard.html.
 
 function getRecomendaciones(categoriasPreferidas = []) {
   if (!window.SITIOS) return [];
 
   if (categoriasPreferidas.length === 0) {
-    // Return top 3 most popular by default
+    // Si no hay preferencias, mostrar los 3 primeros sitios
     return SITIOS.slice(0, 3);
   }
 
-  // Score each site by how many preferred categories it matches
+  // Dar más puntos al sitio que coincida con las categorías que le gustan
   const scored = SITIOS.map(sitio => ({
     ...sitio,
     score: categoriasPreferidas.includes(sitio.categoria) ? 2 : 1

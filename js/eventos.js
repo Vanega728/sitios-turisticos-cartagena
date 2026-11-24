@@ -2,10 +2,10 @@
 // EVENTOS.JS – Cartagena de Indias
 // =====================================================
 // DÓNDE SE GUARDA:
-//   • EVENTOS (abajo) NO se guarda: es un arreglo fijo escrito en el código y
+//   • EVENTOS (abajo) NO se guarda: es una lista fija escrita en el código y
 //     se recrea en cada carga de página.
 //   • Al dar «+ Agenda» se escribe localStorage['agenda'] con los IDs elegidos.
-//     Ese mismo arreglo lo lee agenda.js y el contador del dashboard.
+//     Esa misma lista la lee agenda.js y el contador del panel.
 
 const EVENTOS = [
   {
@@ -76,7 +76,7 @@ const EVENTOS = [
   }
 ];
 
-// ── Render eventos page ───────────────────────────
+// ── Mostrar la página de eventos ─────────────────
 function renderEventosPage() {
   const grid = document.getElementById('eventos-grid');
   if (!grid) return;
@@ -102,7 +102,7 @@ function renderEventosPage() {
   `).join('');
 }
 
-// ── Add to agenda (localStorage) ─────────────────
+// ── Guardar en la agenda (localStorage) ──────────
 // Guarda SOLAMENTE el número de id del evento, no el evento completo.
 function agregarAgenda(id) {
   const saved = JSON.parse(localStorage.getItem('agenda') || '[]'); // lee
@@ -115,7 +115,7 @@ function agregarAgenda(id) {
   showToast('Evento añadido a tu agenda 🗓️');
 }
 
-// ── Filter eventos ────────────────────────────────
+// ── Filtrar eventos ───────────────────────────────
 function filterEventos(tipo) {
   const cards = document.querySelectorAll('.evento-card');
   cards.forEach(card => {
@@ -131,7 +131,7 @@ function filterEventos(tipo) {
   });
 }
 
-// ── Toast notification ────────────────────────────
+// ── Aviso pequeño en pantalla ─────────────────────
 function showToast(msg) {
   let toast = document.getElementById('toast');
   if (!toast) {
@@ -151,7 +151,7 @@ function showToast(msg) {
   setTimeout(() => { toast.style.opacity = '0'; }, 2500);
 }
 
-// ── Search eventos ────────────────────────────────
+// ── Buscar eventos ────────────────────────────────
 function searchEventos(query) {
   const q = query.toLowerCase();
   const cards = document.querySelectorAll('.evento-card');
@@ -165,7 +165,7 @@ function searchEventos(query) {
   });
 }
 
-// ── Init ──────────────────────────────────────────
+// ── Al cargar la página ───────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
   renderEventosPage();
 

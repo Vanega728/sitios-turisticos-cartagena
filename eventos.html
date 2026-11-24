@@ -40,7 +40,7 @@
     <button class="search-btn">Buscar</button>
   </div>
 
-  <!-- Filters -->
+  <!-- BOTONES PARA FILTRAR -->
   <div class="filter-bar">
     <button class="filter-btn active" data-filter="todos">Todos</button>
     <button class="filter-btn" data-filter="festival">🎶 Festival</button>
@@ -51,10 +51,10 @@
     <button class="filter-btn" data-filter="taller">🎓 Taller</button>
   </div>
 
-  <!-- Events grid: lo llena js/eventos.js → renderEventosPage().
+  <!-- Cuadrícula de eventos: la llena js/eventos.js → renderEventosPage().
        El botón «+ Agenda» de cada tarjeta guarda el ID en localStorage['agenda']. -->
   <div class="eventos-grid" id="eventos-grid">
-    <!-- Populated by JS -->
+    <!-- JavaScript pone aquí los eventos -->
   </div>
 
   <footer class="footer">
@@ -78,7 +78,7 @@
     </div>
   </footer>
 
-  <!-- app.js solo aporta la navbar; eventos.js dibuja la página y guarda la agenda. -->
+  <!-- app.js solo aporta la barra de navegación; eventos.js dibuja la página y guarda la agenda. -->
   <script src="js/app.js"></script>
   <script src="js/eventos.js"></script>
 </body>

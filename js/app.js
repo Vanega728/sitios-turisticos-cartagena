@@ -2,13 +2,13 @@
 // APP.JS – Cartagena de Indias: Sitios Turísticos
 // =====================================================
 // DÓNDE SE GUARDA: AQUÍ NO SE GUARDA NADA.
-// SITIOS es un catálogo fijo escrito en este archivo; se crea de nuevo cada vez
+// SITIOS es una lista fija escrita en este archivo; se crea de nuevo cada vez
 // que carga la página. Al final se publica como window.SITIOS para que
 // filtros.js, recomendaciones.js y grafo.js puedan leerlo.
 // El id de cada sitio (castillo, baru, torre-reloj...) es también el nombre de
 // su imagen en asset/img/<id>.jpg.
 
-// ── Data ──────────────────────────────────────────
+// ── Datos (la lista de sitios) ───────────────────
 const SITIOS = [
   {
     id: 'castillo',
@@ -144,7 +144,7 @@ const SITIOS = [
   }
 ];
 
-// ── Navbar scroll effect ──────────────────────────
+// ── La barra cambia al bajar ─────────────────────
 const navbar = document.querySelector('.navbar');
 if (navbar) {
   window.addEventListener('scroll', () => {
@@ -152,14 +152,14 @@ if (navbar) {
   });
 }
 
-// ── Mobile menu toggle ────────────────────────────
+// ── Abrir y cerrar el menú en celular ────────────
 const menuToggle = document.querySelector('.menu-toggle');
 const navLinks   = document.querySelector('.nav-links');
 if (menuToggle && navLinks) {
   menuToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
 }
 
-// ── Render home events (últimos 3) ────────────────
+// ── Mostrar los últimos 3 eventos en el inicio ──
 function renderHomeEvents() {
   const container = document.getElementById('home-events');
   if (!container) return;
@@ -184,5 +184,5 @@ document.addEventListener('DOMContentLoaded', () => {
   if (typeof EVENTOS !== 'undefined') renderHomeEvents();
 });
 
-// Expose globally
+// Dejar SITIOS listo para que otros archivos lo lean
 window.SITIOS = SITIOS;
